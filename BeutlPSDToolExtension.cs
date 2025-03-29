@@ -1,4 +1,5 @@
 ﻿using Beutl.Extensibility;
+using Beutl.Services;
 
 namespace BeutlPSDTool;
 
@@ -11,5 +12,10 @@ public class BeutlPSDToolExtension : Extension
     public override void Load()
     {
         base.Load();
+
+        LibraryService.Current.AddMultiple("PSD", m => m
+            .BindSourceOperator<PSDToolOperator>()
+            .BindDrawable<PSDToolObject>()
+        );
     }
 }

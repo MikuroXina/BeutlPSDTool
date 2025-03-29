@@ -11,19 +11,22 @@
     <Description>The loader for zip package of PSDTool.</Description>
     <Version>0.1.0</Version>
     <Authors>MikuroXina</Authors>
+
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
-      <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-      <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-      <EnableDynamicLoading>true</EnableDynamicLoading>
-      <OutputPath>$([System.Environment]::GetFolderPath(SpecialFolder.UserProfile))\.beutl\sideloads\$(AssemblyName)</OutputPath>
-    </PropertyGroup>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <OutputPath>$([System.Environment]::GetFolderPath(SpecialFolder.UserProfile))\.beutl\sideloads\$(AssemblyName)</OutputPath>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Beutl.Extensibility" Version="1.0.0" />
-        <PackageReference Include="Beutl.ProjectSystem" Version="1.0.0" />
-        <PackageReference Include="Beutl.Operators" Version="1.0.0" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Aspose.PSD" Version="25.3.0" />
+    <PackageReference Include="Beutl.Extensibility" Version="1.0.0" />
+    <PackageReference Include="Beutl.ProjectSystem" Version="1.0.0" />
+    <PackageReference Include="Beutl.Operators" Version="1.0.0" />
+  </ItemGroup>
 
 </Project>
