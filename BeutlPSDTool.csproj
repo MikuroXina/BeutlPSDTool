@@ -29,4 +29,18 @@
     <PackageReference Include="Beutl.Operators" Version="1.0.0" />
   </ItemGroup>
 
+  <!-- Source: https://stackoverflow.com/a/70491844/9067735 -->
+  <Target Name="CopyPackageAssembliesToResourcesForEmbedding" AfterTargets="ResolveReferences">
+    <Message Text="Copying dlls to Resources directory" />
+    <PropertyGroup>
+      <DllOutputDir>Resources\DLL</DllOutputDir>
+    </PropertyGroup>
+    <ItemGroup>
+      <NugetPkgs Include="@(ReferenceCopyLocalPaths)" Condition=" '%(ReferenceCopyLocalPaths.NuGetPackageId)' != '' " />
+      <NugetDlls Include="@(NugetPkgs)" Condition=" '%(NugetPkgs.Extension)' == '.dll' " />
+    </ItemGroup>
+    <MakeDir Directories="$(DllOutputDir)" />
+    <Copy SourceFiles="@(NugetDlls)" DestinationFolder="$(DllOutputDir)" />
+  </Target>
+
 </Project>
